@@ -4,6 +4,16 @@ Compositing design layer plugin for [genart.dev](https://genart.dev) — solid f
 
 Part of [genart.dev](https://genart.dev) — a generative art platform with an MCP server, desktop app, and IDE extensions.
 
+## Examples
+
+![Gradient types](images/gradient-types.png)
+
+All four gradient types — linear, radial, angular, and diamond — with a 3-stop teal→purple→coral palette.
+
+![Gradient variations](images/gradient-variations.png)
+
+Multi-stop palettes, off-center radials, rainbow angular sweeps, and solid fill.
+
 ## Install
 
 ```bash
