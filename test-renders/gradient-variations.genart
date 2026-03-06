@@ -1,0 +1,322 @@
+{
+  "genart": "1.2",
+  "id": "compositing-gradient-variations",
+  "title": "Gradient Variations Gallery",
+  "created": "2026-03-06T00:00:00Z",
+  "modified": "2026-03-06T00:00:00Z",
+  "renderer": { "type": "canvas2d" },
+  "canvas": { "width": 860, "height": 496 },
+  "parameters": [],
+  "colors": [],
+  "state": { "seed": 1, "params": {}, "colorPalette": [] },
+  "algorithm": "function sketch(ctx, state) {\n  const W = 860, H = 496;\n  ctx.fillStyle = '#1a1a2e';\n  ctx.fillRect(0, 0, W, H);\n  return {};\n}",
+  "layers": [
+    {
+      "id": "label-sunset",
+      "type": "typography:text",
+      "name": "Label: Sunset",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": { "x": 16, "y": 22, "width": 200, "height": 24, "rotation": 0, "scaleX": 1, "scaleY": 1, "anchorX": 0, "anchorY": 0 },
+      "properties": {
+        "text": "Sunset",
+        "fontFamily": "Inter",
+        "fontSize": 11,
+        "fontWeight": "700",
+        "fontStyle": "normal",
+        "color": "#b0b0b0",
+        "align": "left",
+        "baseline": "top",
+        "lineHeight": 1.2
+      }
+    },
+    {
+      "id": "label-ocean",
+      "type": "typography:text",
+      "name": "Label: Ocean",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": { "x": 228, "y": 22, "width": 200, "height": 24, "rotation": 0, "scaleX": 1, "scaleY": 1, "anchorX": 0, "anchorY": 0 },
+      "properties": {
+        "text": "Ocean",
+        "fontFamily": "Inter",
+        "fontSize": 11,
+        "fontWeight": "700",
+        "fontStyle": "normal",
+        "color": "#b0b0b0",
+        "align": "left",
+        "baseline": "top",
+        "lineHeight": 1.2
+      }
+    },
+    {
+      "id": "label-neon-ring",
+      "type": "typography:text",
+      "name": "Label: Neon Ring",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": { "x": 440, "y": 22, "width": 200, "height": 24, "rotation": 0, "scaleX": 1, "scaleY": 1, "anchorX": 0, "anchorY": 0 },
+      "properties": {
+        "text": "Neon Ring",
+        "fontFamily": "Inter",
+        "fontSize": 11,
+        "fontWeight": "700",
+        "fontStyle": "normal",
+        "color": "#b0b0b0",
+        "align": "left",
+        "baseline": "top",
+        "lineHeight": 1.2
+      }
+    },
+    {
+      "id": "label-gem",
+      "type": "typography:text",
+      "name": "Label: Gem",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": { "x": 652, "y": 22, "width": 200, "height": 24, "rotation": 0, "scaleX": 1, "scaleY": 1, "anchorX": 0, "anchorY": 0 },
+      "properties": {
+        "text": "Gem",
+        "fontFamily": "Inter",
+        "fontSize": 11,
+        "fontWeight": "700",
+        "fontStyle": "normal",
+        "color": "#b0b0b0",
+        "align": "left",
+        "baseline": "top",
+        "lineHeight": 1.2
+      }
+    },
+    {
+      "id": "label-diagonal",
+      "type": "typography:text",
+      "name": "Label: Diagonal",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": { "x": 16, "y": 262, "width": 200, "height": 24, "rotation": 0, "scaleX": 1, "scaleY": 1, "anchorX": 0, "anchorY": 0 },
+      "properties": {
+        "text": "Diagonal",
+        "fontFamily": "Inter",
+        "fontSize": 11,
+        "fontWeight": "700",
+        "fontStyle": "normal",
+        "color": "#b0b0b0",
+        "align": "left",
+        "baseline": "top",
+        "lineHeight": 1.2
+      }
+    },
+    {
+      "id": "label-offcenter",
+      "type": "typography:text",
+      "name": "Label: Off-center Radial",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": { "x": 228, "y": 262, "width": 200, "height": 24, "rotation": 0, "scaleX": 1, "scaleY": 1, "anchorX": 0, "anchorY": 0 },
+      "properties": {
+        "text": "Off-center Radial",
+        "fontFamily": "Inter",
+        "fontSize": 11,
+        "fontWeight": "700",
+        "fontStyle": "normal",
+        "color": "#b0b0b0",
+        "align": "left",
+        "baseline": "top",
+        "lineHeight": 1.2
+      }
+    },
+    {
+      "id": "label-spiral",
+      "type": "typography:text",
+      "name": "Label: Spiral Colors",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": { "x": 440, "y": 262, "width": 200, "height": 24, "rotation": 0, "scaleX": 1, "scaleY": 1, "anchorX": 0, "anchorY": 0 },
+      "properties": {
+        "text": "Spiral Colors",
+        "fontFamily": "Inter",
+        "fontSize": 11,
+        "fontWeight": "700",
+        "fontStyle": "normal",
+        "color": "#b0b0b0",
+        "align": "left",
+        "baseline": "top",
+        "lineHeight": 1.2
+      }
+    },
+    {
+      "id": "label-solid",
+      "type": "typography:text",
+      "name": "Label: Solid Fill",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": { "x": 652, "y": 262, "width": 200, "height": 24, "rotation": 0, "scaleX": 1, "scaleY": 1, "anchorX": 0, "anchorY": 0 },
+      "properties": {
+        "text": "Solid Fill",
+        "fontFamily": "Inter",
+        "fontSize": 11,
+        "fontWeight": "700",
+        "fontStyle": "normal",
+        "color": "#b0b0b0",
+        "align": "left",
+        "baseline": "top",
+        "lineHeight": 1.2
+      }
+    },
+    {
+      "id": "var-sunset",
+      "type": "composite:gradient",
+      "name": "Sunset",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": { "x": 12, "y": 40, "width": 200, "height": 200, "rotation": 0, "scaleX": 1, "scaleY": 1, "anchorX": 0, "anchorY": 0 },
+      "properties": {
+        "gradientType": "linear",
+        "angle": 90,
+        "stops": "[{\"offset\":0,\"color\":\"#ff6b35\"},{\"offset\":0.3,\"color\":\"#f7c948\"},{\"offset\":0.6,\"color\":\"#e83e8c\"},{\"offset\":1,\"color\":\"#1a1a2e\"}]",
+        "centerX": 0.5,
+        "centerY": 0.5,
+        "scale": 1
+      }
+    },
+    {
+      "id": "var-ocean",
+      "type": "composite:gradient",
+      "name": "Ocean",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": { "x": 224, "y": 40, "width": 200, "height": 200, "rotation": 0, "scaleX": 1, "scaleY": 1, "anchorX": 0, "anchorY": 0 },
+      "properties": {
+        "gradientType": "radial",
+        "angle": 0,
+        "stops": "[{\"offset\":0,\"color\":\"#ffffff\"},{\"offset\":0.3,\"color\":\"#00bfff\"},{\"offset\":0.7,\"color\":\"#0066cc\"},{\"offset\":1,\"color\":\"#001a33\"}]",
+        "centerX": 0.5,
+        "centerY": 0.5,
+        "scale": 1
+      }
+    },
+    {
+      "id": "var-neon-ring",
+      "type": "composite:gradient",
+      "name": "Neon Ring",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": { "x": 436, "y": 40, "width": 200, "height": 200, "rotation": 0, "scaleX": 1, "scaleY": 1, "anchorX": 0, "anchorY": 0 },
+      "properties": {
+        "gradientType": "angular",
+        "angle": 0,
+        "stops": "[{\"offset\":0,\"color\":\"#ff00ff\"},{\"offset\":0.25,\"color\":\"#00ffff\"},{\"offset\":0.5,\"color\":\"#ffff00\"},{\"offset\":0.75,\"color\":\"#ff00ff\"},{\"offset\":1,\"color\":\"#ff00ff\"}]",
+        "centerX": 0.5,
+        "centerY": 0.5,
+        "scale": 1
+      }
+    },
+    {
+      "id": "var-gem",
+      "type": "composite:gradient",
+      "name": "Gem",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": { "x": 648, "y": 40, "width": 200, "height": 200, "rotation": 0, "scaleX": 1, "scaleY": 1, "anchorX": 0, "anchorY": 0 },
+      "properties": {
+        "gradientType": "diamond",
+        "angle": 0,
+        "stops": "[{\"offset\":0,\"color\":\"#ffffff\"},{\"offset\":0.2,\"color\":\"#00ff88\"},{\"offset\":0.5,\"color\":\"#0088ff\"},{\"offset\":1,\"color\":\"#000022\"}]",
+        "centerX": 0.5,
+        "centerY": 0.5,
+        "scale": 1
+      }
+    },
+    {
+      "id": "var-diagonal",
+      "type": "composite:gradient",
+      "name": "Diagonal",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": { "x": 12, "y": 280, "width": 200, "height": 200, "rotation": 0, "scaleX": 1, "scaleY": 1, "anchorX": 0, "anchorY": 0 },
+      "properties": {
+        "gradientType": "linear",
+        "angle": 135,
+        "stops": "[{\"offset\":0,\"color\":\"#667eea\"},{\"offset\":1,\"color\":\"#764ba2\"}]",
+        "centerX": 0.5,
+        "centerY": 0.5,
+        "scale": 1
+      }
+    },
+    {
+      "id": "var-offcenter",
+      "type": "composite:gradient",
+      "name": "Off-center Radial",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": { "x": 224, "y": 280, "width": 200, "height": 200, "rotation": 0, "scaleX": 1, "scaleY": 1, "anchorX": 0, "anchorY": 0 },
+      "properties": {
+        "gradientType": "radial",
+        "angle": 0,
+        "stops": "[{\"offset\":0,\"color\":\"#ffecd2\"},{\"offset\":0.5,\"color\":\"#fcb69f\"},{\"offset\":1,\"color\":\"#4a1a2e\"}]",
+        "centerX": 0.3,
+        "centerY": 0.3,
+        "scale": 1
+      }
+    },
+    {
+      "id": "var-spiral",
+      "type": "composite:gradient",
+      "name": "Spiral Colors",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": { "x": 436, "y": 280, "width": 200, "height": 200, "rotation": 0, "scaleX": 1, "scaleY": 1, "anchorX": 0, "anchorY": 0 },
+      "properties": {
+        "gradientType": "angular",
+        "angle": 0,
+        "stops": "[{\"offset\":0,\"color\":\"#ff0000\"},{\"offset\":0.166,\"color\":\"#ffff00\"},{\"offset\":0.333,\"color\":\"#00ff00\"},{\"offset\":0.5,\"color\":\"#00ffff\"},{\"offset\":0.666,\"color\":\"#0000ff\"},{\"offset\":0.833,\"color\":\"#ff00ff\"},{\"offset\":1,\"color\":\"#ff0000\"}]",
+        "centerX": 0.5,
+        "centerY": 0.5,
+        "scale": 1
+      }
+    },
+    {
+      "id": "var-solid",
+      "type": "composite:solid",
+      "name": "Solid Fill",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": { "x": 648, "y": 280, "width": 200, "height": 200, "rotation": 0, "scaleX": 1, "scaleY": 1, "anchorX": 0, "anchorY": 0 },
+      "properties": {
+        "color": "#4ecdc4"
+      }
+    }
+  ]
+}

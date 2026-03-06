@@ -6,13 +6,11 @@ Part of [genart.dev](https://genart.dev) — a generative art platform with an M
 
 ## Examples
 
-![Gradient types](images/gradient-types.png)
+![Gradient types](test-renders/gradient-types.png)
 
-All four gradient types — linear, radial, angular, and diamond — with a 3-stop teal→purple→coral palette.
+![Gradient variations](test-renders/gradient-variations.png)
 
-![Gradient variations](images/gradient-variations.png)
-
-Multi-stop palettes, off-center radials, rainbow angular sweeps, and solid fill.
+Source files: [gradient-types.genart](test-renders/gradient-types.genart) · [gradient-variations.genart](test-renders/gradient-variations.genart)
 
 ## Install
 

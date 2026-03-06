@@ -1,0 +1,171 @@
+{
+  "genart": "1.2",
+  "id": "compositing-gradient-types",
+  "title": "Gradient Types Gallery",
+  "created": "2026-03-06T00:00:00Z",
+  "modified": "2026-03-06T00:00:00Z",
+  "renderer": { "type": "canvas2d" },
+  "canvas": { "width": 860, "height": 268 },
+  "parameters": [],
+  "colors": [],
+  "state": { "seed": 1, "params": {}, "colorPalette": [] },
+  "algorithm": "function sketch(ctx, state) {\n  const W = 860, H = 268;\n  ctx.fillStyle = '#1a1a2e';\n  ctx.fillRect(0, 0, W, H);\n  return {};\n}",
+  "layers": [
+    {
+      "id": "label-linear",
+      "type": "typography:text",
+      "name": "Label: linear",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": { "x": 12, "y": 10, "width": 200, "height": 24, "rotation": 0, "scaleX": 1, "scaleY": 1, "anchorX": 0, "anchorY": 0 },
+      "properties": {
+        "text": "linear",
+        "fontFamily": "Inter",
+        "fontSize": 12,
+        "fontWeight": "700",
+        "fontStyle": "normal",
+        "color": "#e0e0e0",
+        "align": "center",
+        "baseline": "top",
+        "lineHeight": 1.2
+      }
+    },
+    {
+      "id": "label-radial",
+      "type": "typography:text",
+      "name": "Label: radial",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": { "x": 224, "y": 10, "width": 200, "height": 24, "rotation": 0, "scaleX": 1, "scaleY": 1, "anchorX": 0, "anchorY": 0 },
+      "properties": {
+        "text": "radial",
+        "fontFamily": "Inter",
+        "fontSize": 12,
+        "fontWeight": "700",
+        "fontStyle": "normal",
+        "color": "#e0e0e0",
+        "align": "center",
+        "baseline": "top",
+        "lineHeight": 1.2
+      }
+    },
+    {
+      "id": "label-angular",
+      "type": "typography:text",
+      "name": "Label: angular",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": { "x": 436, "y": 10, "width": 200, "height": 24, "rotation": 0, "scaleX": 1, "scaleY": 1, "anchorX": 0, "anchorY": 0 },
+      "properties": {
+        "text": "angular",
+        "fontFamily": "Inter",
+        "fontSize": 12,
+        "fontWeight": "700",
+        "fontStyle": "normal",
+        "color": "#e0e0e0",
+        "align": "center",
+        "baseline": "top",
+        "lineHeight": 1.2
+      }
+    },
+    {
+      "id": "label-diamond",
+      "type": "typography:text",
+      "name": "Label: diamond",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": { "x": 648, "y": 10, "width": 200, "height": 24, "rotation": 0, "scaleX": 1, "scaleY": 1, "anchorX": 0, "anchorY": 0 },
+      "properties": {
+        "text": "diamond",
+        "fontFamily": "Inter",
+        "fontSize": 12,
+        "fontWeight": "700",
+        "fontStyle": "normal",
+        "color": "#e0e0e0",
+        "align": "center",
+        "baseline": "top",
+        "lineHeight": 1.2
+      }
+    },
+    {
+      "id": "grad-linear",
+      "type": "composite:gradient",
+      "name": "Linear",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": { "x": 12, "y": 40, "width": 200, "height": 200, "rotation": 0, "scaleX": 1, "scaleY": 1, "anchorX": 0, "anchorY": 0 },
+      "properties": {
+        "gradientType": "linear",
+        "angle": 45,
+        "stops": "[{\"offset\":0,\"color\":\"#4ecdc4\"},{\"offset\":0.5,\"color\":\"#6b1d9e\"},{\"offset\":1,\"color\":\"#ff6b6b\"}]",
+        "centerX": 0.5,
+        "centerY": 0.5,
+        "scale": 1
+      }
+    },
+    {
+      "id": "grad-radial",
+      "type": "composite:gradient",
+      "name": "Radial",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": { "x": 224, "y": 40, "width": 200, "height": 200, "rotation": 0, "scaleX": 1, "scaleY": 1, "anchorX": 0, "anchorY": 0 },
+      "properties": {
+        "gradientType": "radial",
+        "angle": 0,
+        "stops": "[{\"offset\":0,\"color\":\"#4ecdc4\"},{\"offset\":0.5,\"color\":\"#6b1d9e\"},{\"offset\":1,\"color\":\"#ff6b6b\"}]",
+        "centerX": 0.5,
+        "centerY": 0.5,
+        "scale": 1
+      }
+    },
+    {
+      "id": "grad-angular",
+      "type": "composite:gradient",
+      "name": "Angular",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": { "x": 436, "y": 40, "width": 200, "height": 200, "rotation": 0, "scaleX": 1, "scaleY": 1, "anchorX": 0, "anchorY": 0 },
+      "properties": {
+        "gradientType": "angular",
+        "angle": 0,
+        "stops": "[{\"offset\":0,\"color\":\"#4ecdc4\"},{\"offset\":0.5,\"color\":\"#6b1d9e\"},{\"offset\":1,\"color\":\"#ff6b6b\"}]",
+        "centerX": 0.5,
+        "centerY": 0.5,
+        "scale": 1
+      }
+    },
+    {
+      "id": "grad-diamond",
+      "type": "composite:gradient",
+      "name": "Diamond",
+      "visible": true,
+      "locked": false,
+      "opacity": 1,
+      "blendMode": "normal",
+      "transform": { "x": 648, "y": 40, "width": 200, "height": 200, "rotation": 0, "scaleX": 1, "scaleY": 1, "anchorX": 0, "anchorY": 0 },
+      "properties": {
+        "gradientType": "diamond",
+        "angle": 0,
+        "stops": "[{\"offset\":0,\"color\":\"#4ecdc4\"},{\"offset\":0.5,\"color\":\"#6b1d9e\"},{\"offset\":1,\"color\":\"#ff6b6b\"}]",
+        "centerX": 0.5,
+        "centerY": 0.5,
+        "scale": 1
+      }
+    }
+  ]
+}
