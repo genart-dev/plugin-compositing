@@ -228,28 +228,57 @@ export const createGroupTool: McpToolDefinition = {
 
 export const setMaskTool: McpToolDefinition = {
   name: "set_mask",
-  description: "Apply a mask to a layer using another layer as the mask source.",
+  description:
+    "Apply a mask to a design layer. The mask source layer clips the target layer. " +
+    "Modifier-path layers (painting:*, adjust:*, filter:*) cannot be masked.",
   inputSchema: {
     type: "object",
     properties: {
-      layerId: { type: "string", description: "Layer to be masked." },
-      maskLayerId: { type: "string", description: 'Source of the mask, or "" to remove.' },
-      maskMode: { type: "string", enum: ["alpha", "luminosity", "inverted-alpha"], description: 'Default "alpha".' },
+      layerId: { type: "string", description: "ID of the layer to mask." },
+      maskLayerId: {
+        type: "string",
+        description: "ID of the layer to use as the mask source (must be earlier in the stack).",
+      },
+      maskMode: {
+        type: "string",
+        enum: ["alpha", "inverted-alpha", "luminosity"],
+        description:
+          'alpha: show where mask is opaque (default); inverted-alpha: show where mask is transparent; luminosity: modulate by mask brightness.',
+      },
     },
     required: ["layerId", "maskLayerId"],
   } satisfies JsonSchema,
 
   async handler(input: Record<string, unknown>, context: McpToolContext): Promise<McpToolResult> {
     const layerId = input.layerId as string;
-    const layer = context.layers.get(layerId);
-    if (!layer) return errorResult(`Layer '${layerId}' not found.`);
+    const maskLayerId = input.maskLayerId as string;
 
-    context.layers.updateProperties(layerId, {
-      maskLayerId: input.maskLayerId as string,
-      maskMode: (input.maskMode as string) ?? "alpha",
-    } as Partial<LayerProperties>);
-    context.emitChange("layer-updated");
-    return textResult(`Set mask on layer '${layerId}'.`);
+    if (!context.layers.get(layerId)) return errorResult(`Layer '${layerId}' not found.`);
+    if (!context.layers.get(maskLayerId)) return errorResult(`Mask source layer '${maskLayerId}' not found.`);
+    if (maskLayerId === layerId) return errorResult(`A layer cannot mask itself.`);
+
+    const mode = (input.maskMode as "alpha" | "inverted-alpha" | "luminosity" | undefined) ?? "alpha";
+    context.layers.setMask(layerId, maskLayerId, mode);
+    return textResult(`Set ${mode} mask on layer '${layerId}' using '${maskLayerId}'.`);
+  },
+};
+
+export const clearMaskTool: McpToolDefinition = {
+  name: "clear_mask",
+  description: "Remove the mask from a design layer, restoring full unmasked rendering.",
+  inputSchema: {
+    type: "object",
+    properties: {
+      layerId: { type: "string", description: "ID of the layer to unmask." },
+    },
+    required: ["layerId"],
+  } satisfies JsonSchema,
+
+  async handler(input: Record<string, unknown>, context: McpToolContext): Promise<McpToolResult> {
+    const layerId = input.layerId as string;
+    if (!context.layers.get(layerId)) return errorResult(`Layer '${layerId}' not found.`);
+    context.layers.clearMask(layerId);
+    return textResult(`Removed mask from layer '${layerId}'.`);
   },
 };
 
@@ -285,5 +314,6 @@ export const compositingMcpTools: McpToolDefinition[] = [
   importImageTool,
   createGroupTool,
   setMaskTool,
+  clearMaskTool,
   listAssetsTool,
 ];
