@@ -1,6 +1,6 @@
 {
   "name": "@genart-dev/plugin-compositing",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Compositing design layer plugin for genart.dev",
   "type": "module",
   "main": "./dist/index.cjs",
