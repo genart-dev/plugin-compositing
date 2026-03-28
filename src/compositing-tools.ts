@@ -308,6 +308,138 @@ export const listAssetsTool: McpToolDefinition = {
   },
 };
 
+export const addDropShadowTool: McpToolDefinition = {
+  name: "add_drop_shadow",
+  description: "Add a drop shadow effect layer.",
+  inputSchema: {
+    type: "object",
+    properties: {
+      offsetX: { type: "number", description: "Horizontal offset in px (default: 4)." },
+      offsetY: { type: "number", description: "Vertical offset in px (default: 4)." },
+      blur:    { type: "number", description: "Blur radius in px 0–50 (default: 8)." },
+      color:   { type: "string", description: 'Shadow color as hex with alpha (default: "#00000066").' },
+      layerName: { type: "string" },
+    },
+  } satisfies JsonSchema,
+
+  async handler(input: Record<string, unknown>, context: McpToolContext): Promise<McpToolResult> {
+    const properties: LayerProperties = {
+      offsetX: (input.offsetX as number) ?? 4,
+      offsetY: (input.offsetY as number) ?? 4,
+      blur: (input.blur as number) ?? 8,
+      spread: 0,
+      color: (input.color as string) ?? "#00000066",
+    };
+    const layer: DesignLayer = {
+      id: generateLayerId(),
+      type: "composite:drop-shadow",
+      name: (input.layerName as string) ?? "Drop Shadow",
+      visible: true,
+      locked: false,
+      opacity: 1,
+      blendMode: "normal",
+      transform: defaultTransform(input),
+      properties,
+    };
+    context.layers.add(layer);
+    context.emitChange("layer-added");
+    return textResult(`Added drop shadow layer '${layer.id}'.`);
+  },
+};
+
+export const addInnerGlowTool: McpToolDefinition = {
+  name: "add_inner_glow",
+  description: "Add an inner glow effect layer.",
+  inputSchema: {
+    type: "object",
+    properties: {
+      radius:    { type: "number", description: "Glow radius in px 1–50 (default: 10)." },
+      color:     { type: "string", description: 'Glow color as hex (default: "#ffffff").' },
+      intensity: { type: "number", description: "Glow intensity 0–1 (default: 0.5)." },
+      layerName: { type: "string" },
+    },
+  } satisfies JsonSchema,
+
+  async handler(input: Record<string, unknown>, context: McpToolContext): Promise<McpToolResult> {
+    const properties: LayerProperties = {
+      radius: (input.radius as number) ?? 10,
+      color: (input.color as string) ?? "#ffffff",
+      intensity: (input.intensity as number) ?? 0.5,
+    };
+    const layer: DesignLayer = {
+      id: generateLayerId(),
+      type: "composite:inner-glow",
+      name: (input.layerName as string) ?? "Inner Glow",
+      visible: true,
+      locked: false,
+      opacity: 1,
+      blendMode: "normal",
+      transform: defaultTransform(input),
+      properties,
+    };
+    context.layers.add(layer);
+    context.emitChange("layer-added");
+    return textResult(`Added inner glow layer '${layer.id}'.`);
+  },
+};
+
+const BLEND_MODE_PRESETS: Record<string, string> = {
+  normal: "Normal — no blending, top layer covers bottom",
+  multiply: "Multiply — darkens, like layering ink washes",
+  screen: "Screen — lightens, like projecting two slides",
+  overlay: "Overlay — increases contrast, preserves highlights and shadows",
+  "soft-light": "Soft Light — subtle contrast boost, like diffused spotlight",
+  "hard-light": "Hard Light — strong contrast, like harsh spotlight",
+  darken: "Darken — keeps darker pixel from each layer",
+  lighten: "Lighten — keeps lighter pixel from each layer",
+  "color-dodge": "Color Dodge — brightens bottom by dividing by top",
+  "color-burn": "Color Burn — darkens bottom by dividing by inverted top",
+  difference: "Difference — absolute difference between layers",
+  exclusion: "Exclusion — similar to difference but lower contrast",
+};
+
+export const listBlendModesTool: McpToolDefinition = {
+  name: "list_blend_modes",
+  description: "List all available blend modes with descriptions and usage guidance.",
+  inputSchema: {
+    type: "object",
+    properties: {},
+  } satisfies JsonSchema,
+
+  async handler(_input: Record<string, unknown>, _context: McpToolContext): Promise<McpToolResult> {
+    const lines = Object.entries(BLEND_MODE_PRESETS).map(([mode, desc]) => `• **${mode}**: ${desc}`);
+    return textResult(`Available blend modes:\n${lines.join("\n")}\n\nSet via the blendMode property on any layer.`);
+  },
+};
+
+export const setBlendModeTool: McpToolDefinition = {
+  name: "set_blend_mode",
+  description: "Set the blend mode of an existing layer.",
+  inputSchema: {
+    type: "object",
+    properties: {
+      layerId: { type: "string", description: "Layer ID to update." },
+      blendMode: {
+        type: "string",
+        enum: Object.keys(BLEND_MODE_PRESETS),
+        description: "Blend mode to apply.",
+      },
+    },
+    required: ["layerId", "blendMode"],
+  } satisfies JsonSchema,
+
+  async handler(input: Record<string, unknown>, context: McpToolContext): Promise<McpToolResult> {
+    const layerId = input.layerId as string;
+    const blendMode = input.blendMode as string;
+    if (!context.layers.get(layerId)) return errorResult(`Layer '${layerId}' not found.`);
+    if (!BLEND_MODE_PRESETS[blendMode]) return errorResult(`Unknown blend mode '${blendMode}'.`);
+
+    context.layers.updateProperties(layerId, { blendMode } as Partial<LayerProperties>);
+    context.emitChange("layer-updated");
+    return textResult(`Set blend mode '${blendMode}' on layer '${layerId}'.`);
+  },
+};
+
 export const compositingMcpTools: McpToolDefinition[] = [
   addSolidTool,
   addGradientTool,
@@ -316,4 +448,8 @@ export const compositingMcpTools: McpToolDefinition[] = [
   setMaskTool,
   clearMaskTool,
   listAssetsTool,
+  addDropShadowTool,
+  addInnerGlowTool,
+  listBlendModesTool,
+  setBlendModeTool,
 ];

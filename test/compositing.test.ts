@@ -45,6 +45,8 @@ function makeMockContext(layers: DesignLayer[] = []) {
       add: vi.fn((layer: DesignLayer) => layerMap.set(layer.id, layer)),
       get: vi.fn((id: string) => layerMap.get(id)),
       updateProperties: vi.fn(),
+      setMask: vi.fn(),
+      clearMask: vi.fn(),
     },
     emitChange: vi.fn(),
   } as unknown as McpToolContext;
@@ -54,8 +56,8 @@ describe("compositingPlugin", () => {
   it("exports a valid DesignPlugin", () => {
     expect(compositingPlugin.id).toBe("compositing");
     expect(compositingPlugin.tier).toBe("free");
-    expect(compositingPlugin.layerTypes).toHaveLength(4);
-    expect(compositingPlugin.mcpTools).toHaveLength(6);
+    expect(compositingPlugin.layerTypes).toHaveLength(6);
+    expect(compositingPlugin.mcpTools).toHaveLength(11);
   });
 
   it("all layer types have unique typeIds", () => {
@@ -166,21 +168,21 @@ describe("add_gradient tool", () => {
 
 describe("set_mask tool", () => {
   it("sets mask on a layer", async () => {
-    const existing: DesignLayer = {
-      id: "layer-1",
-      type: "composite:solid",
-      name: "Solid",
-      visible: true,
-      locked: false,
-      opacity: 1,
-      blendMode: "normal",
-      transform: { x: 0, y: 0, width: 800, height: 600, rotation: 0, scaleX: 1, scaleY: 1, anchorX: 0.5, anchorY: 0.5 },
-      properties: { color: "#000" },
+    const transform = { x: 0, y: 0, width: 800, height: 600, rotation: 0, scaleX: 1, scaleY: 1, anchorX: 0.5, anchorY: 0.5 };
+    const layer1: DesignLayer = {
+      id: "layer-1", type: "composite:solid", name: "Solid",
+      visible: true, locked: false, opacity: 1, blendMode: "normal",
+      transform, properties: { color: "#000" },
     };
-    const context = makeMockContext([existing]);
+    const layer2: DesignLayer = {
+      id: "layer-2", type: "composite:solid", name: "Mask",
+      visible: true, locked: false, opacity: 1, blendMode: "normal",
+      transform, properties: { color: "#fff" },
+    };
+    const context = makeMockContext([layer1, layer2]);
     const tool = compositingPlugin.mcpTools.find((t) => t.name === "set_mask")!;
     const result = await tool.handler({ layerId: "layer-1", maskLayerId: "layer-2" }, context);
-    expect(context.layers.updateProperties).toHaveBeenCalled();
+    expect(context.layers.setMask).toHaveBeenCalled();
     expect(result.isError).toBeFalsy();
   });
 
