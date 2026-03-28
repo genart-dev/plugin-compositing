@@ -194,7 +194,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@genart-dev/components@npm:^0.1.0":
+"@genart-dev/components@npm:^0.1.4":
   version: 0.1.4
   resolution: "@genart-dev/components@npm:0.1.4"
   dependencies:
@@ -203,20 +203,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@genart-dev/core@npm:^0.3.0":
-  version: 0.3.1
-  resolution: "@genart-dev/core@npm:0.3.1"
+"@genart-dev/core@npm:^0.11.0":
+  version: 0.11.1
+  resolution: "@genart-dev/core@npm:0.11.1"
   dependencies:
-    "@genart-dev/components": "npm:^0.1.0"
-    "@genart-dev/format": "npm:^0.3.0"
-  checksum: 10c0/72dd18c8fc3ccfbc6d19d6fce9bb3936ea841957e0160de01bae409896f3efeb4ee66fe4cb2497e5ee2f3ac46e9194b62d7ec2ff808d42ed2513f1d887e5f68d
-  languageName: node
-  linkType: hard
-
-"@genart-dev/format@npm:^0.3.0":
-  version: 0.3.1
-  resolution: "@genart-dev/format@npm:0.3.1"
-  checksum: 10c0/0b342dbe213ecd21670c5a0a8e930b36778e4e16abb3033b3aebca9af62b92d75114cb73e496050275d727d1283df0c44427b4366cb2be9fa7d8b6a732712773
+    "@genart-dev/components": "npm:^0.1.4"
+    "@genart-dev/format": "npm:^0.7.0"
+    "@genart-dev/genart-script": "npm:^0.1.2"
+    "@genart-dev/illustration": "npm:^0.3.0"
+    "@genart-dev/projection": "npm:^0.1.0"
+  peerDependencies:
+    esbuild: ">=0.17.0"
+  peerDependenciesMeta:
+    esbuild:
+      optional: true
+  checksum: 10c0/fa74f90ccc8330dfd93f1682bcbed80cc7e1917f330b7f85b519084be76256ef6db7e8d462715e3e803f85a418946684728065cd3d71b1c7773d8304489dedc5
   languageName: node
   linkType: hard
 
@@ -227,16 +228,44 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@genart-dev/format@npm:^0.7.0":
+  version: 0.7.0
+  resolution: "@genart-dev/format@npm:0.7.0"
+  checksum: 10c0/8e4782616c1be2e6bebf8f324ee3692f6bb6d56a5008bbc27aadb178ae055bc27b246378eb7ca47f5a8aad8f8a1ab67882ddd3552e850ec4e83544570539990a
+  languageName: node
+  linkType: hard
+
+"@genart-dev/genart-script@npm:^0.1.2":
+  version: 0.1.5
+  resolution: "@genart-dev/genart-script@npm:0.1.5"
+  checksum: 10c0/360a5984df5706b7c480f445f41087a6b12907f27f3b9528e25517fead29ac63092d7c81d7bb3625211ada90807c7db1e9ce33d48ad8bc888cb596bb23817176
+  languageName: node
+  linkType: hard
+
+"@genart-dev/illustration@npm:^0.3.0":
+  version: 0.3.0
+  resolution: "@genart-dev/illustration@npm:0.3.0"
+  checksum: 10c0/1f5a6e2098a044f3c04d97bdf96febdefb777d4da849a68d9365c9a51a20ab126ebec57f99a759e90ed241d1eb59108c5fa4006e60c15df528f0da8d0749bc0f
+  languageName: node
+  linkType: hard
+
 "@genart-dev/plugin-compositing@workspace:.":
   version: 0.0.0-use.local
   resolution: "@genart-dev/plugin-compositing@workspace:."
   dependencies:
-    "@genart-dev/core": "npm:^0.3.0"
+    "@genart-dev/core": "npm:^0.11.0"
     tsup: "npm:^8.3.6"
     typescript: "npm:^5.7.3"
     vitest: "npm:^3.0.5"
   languageName: unknown
   linkType: soft
+
+"@genart-dev/projection@npm:^0.1.0":
+  version: 0.1.0
+  resolution: "@genart-dev/projection@npm:0.1.0"
+  checksum: 10c0/5a484ca0f6dca988c79d2ff644e952cad145004bff3df4e7790bda024f492d3fd90cdd43ca5c78929c575e49909740cdacf11db2c6993d52d480f162ca02ae59
+  languageName: node
+  linkType: hard
 
 "@isaacs/fs-minipass@npm:^4.0.0":
   version: 4.0.1

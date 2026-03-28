@@ -51,7 +51,7 @@
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "@genart-dev/core": "^0.3.0"
+    "@genart-dev/core": "^0.11.0"
   },
   "devDependencies": {
     "tsup": "^8.3.6",
