@@ -119,6 +119,9 @@ function computeDrawRect(
 
 export const imageLayerType: LayerTypeDefinition = {
   typeId: "composite:image",
+  // Draws into the bounds it is handed, so it resolves at the canvas's own
+  // resolution rather than being enlarged afterwards (ADR 111).
+  resolution: "device",
   displayName: "Image",
   icon: "image",
   category: "image",

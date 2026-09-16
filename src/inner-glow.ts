@@ -31,6 +31,8 @@ function hexToRgba(hex: string): [number, number, number, number] {
 
 export const innerGlowLayerType: LayerTypeDefinition = {
   typeId: "composite:inner-glow",
+  // Works on the composite at the canvas's own resolution (ADR 111).
+  resolution: "device",
   // Reads the pixels earlier layers drew (ADR 111).
   reads: "composite",
   displayName: "Inner Glow",
@@ -53,7 +55,10 @@ export const innerGlowLayerType: LayerTypeDefinition = {
     bounds: LayerBounds,
     _resources: RenderResources,
   ): void {
-    const radius = (properties.radius as number) ?? 10;
+    // Device pixels per layout unit (ADR 111), so the glow keeps its width on
+    // the paper instead of narrowing as the canvas grows.
+    const dsc = bounds.scale ?? 1;
+    const radius = ((properties.radius as number) ?? 10) * dsc;
     const colorHex = (properties.color as string) ?? "#ffffff";
     const intensity = (properties.intensity as number) ?? 0.5;
 

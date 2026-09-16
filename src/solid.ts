@@ -18,6 +18,8 @@ const SOLID_PROPERTIES: LayerPropertySchema[] = [
 
 export const solidLayerType: LayerTypeDefinition = {
   typeId: "composite:solid",
+  // Fills the bounds it is handed, at any resolution (ADR 111).
+  resolution: "device",
   displayName: "Solid Fill",
   icon: "rectangle",
   category: "image",

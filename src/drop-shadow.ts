@@ -17,6 +17,10 @@ const DROP_SHADOW_PROPERTIES: LayerPropertySchema[] = [
 
 export const dropShadowLayerType: LayerTypeDefinition = {
   typeId: "composite:drop-shadow",
+  // Reads and writes at the bounds it is handed, at any resolution (ADR 111).
+  // NOTE: this renderer draws nothing at all, at any scale: it writes the
+  // pixels back with putImageData, which ignores the shadow state above.
+  resolution: "device",
   // Reads the pixels earlier layers drew (ADR 111).
   reads: "composite",
   displayName: "Drop Shadow",

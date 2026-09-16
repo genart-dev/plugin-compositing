@@ -158,6 +158,8 @@ function renderPerPixelGradient(
 
 export const gradientLayerType: LayerTypeDefinition = {
   typeId: "composite:gradient",
+  // Its stops are placed across the bounds it is handed, at any resolution (ADR 111).
+  resolution: "device",
   displayName: "Gradient Fill",
   icon: "gradient",
   category: "image",
