@@ -17,6 +17,8 @@ const DROP_SHADOW_PROPERTIES: LayerPropertySchema[] = [
 
 export const dropShadowLayerType: LayerTypeDefinition = {
   typeId: "composite:drop-shadow",
+  // Reads the pixels earlier layers drew (ADR 111).
+  reads: "composite",
   displayName: "Drop Shadow",
   icon: "shadow",
   category: "filter",

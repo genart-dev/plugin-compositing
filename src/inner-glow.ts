@@ -31,6 +31,8 @@ function hexToRgba(hex: string): [number, number, number, number] {
 
 export const innerGlowLayerType: LayerTypeDefinition = {
   typeId: "composite:inner-glow",
+  // Reads the pixels earlier layers drew (ADR 111).
+  reads: "composite",
   displayName: "Inner Glow",
   icon: "glow",
   category: "filter",
