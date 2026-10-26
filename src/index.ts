@@ -10,7 +10,7 @@ import { compositingMcpTools } from "./compositing-tools.js";
 const compositingPlugin: DesignPlugin = {
   id: "compositing",
   name: "Compositing",
-  version: "0.2.0",
+  version: "0.3.0",
   tier: "free",
   description: "Compositing layers: solid fill, gradient fill, image, group, drop shadow, inner glow.",
 
